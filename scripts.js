@@ -32,7 +32,15 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+function game() {
+    for(let i = 0; i < 5; i++) {
+        let input = prompt("What would you like to play? ");
+        console.log(playRound(input, computerPlay()));
+    }
+}
 
 const playerSelection = "Scissors";
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
+
+game();
