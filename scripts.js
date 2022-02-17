@@ -1,5 +1,3 @@
-console.log("Hello werld!!!");
-
 function computerPlay() {
     const hand = ["Rock", "Paper", "Scissors"];
     return hand[Math.floor(Math.random()*hand.length)];
@@ -32,15 +30,31 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
+
+const buttons = document.querySelectorAll('button');
+let playerSelection = "Error";
+
+
+
+let computerSelection = computerPlay();
+
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () =>  {
+      playerSelection = button.textContent;
+      console.log(playerSelection);
+
+      console.log(playRound(playerSelection, computerSelection));
+      computerSelection = computerPlay();
+    });
+});
+/*function game() {
     for(let i = 0; i < 5; i++) {
         let input = prompt("What would you like to play? ");
         console.log(playRound(input, computerPlay()));
     }
-}
+}*/
 
-const playerSelection = "Scissors";
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
+//console.log(playRound(playerSelection, computerSelection));
 
-game();
+//game();
