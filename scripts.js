@@ -54,28 +54,30 @@ buttons.forEach((button) => {
         computerSelection = computerPlay();
         resultText = playRound(playerSelection, computerSelection);
 
-        //Creating DOM element, appending to <div>, prints results.
+        //TODO: Logic for score tracking, game rounds, and winning/losing.
+        //TODO: change print out  result to 1, not "win.." "win.." "lose..."
+
+
+
+
+
+        //Creating DOM elements
         const resultContainer = document.querySelector('.resultContainer'); 
 
-        const content = document.createElement('div');
         const flexContainer = document.createElement('div');
         flexContainer.classList.add('flexContainer');
-
-        //results children
+        //Prints results
+        const content = document.createElement('div');
+        content.classList.add('content');
+        content.textContent = resultText;
+        //Printing scores
         const playerScore = document.createElement('div');
         playerScore.classList.add('scoreNum');
         playerScore.textContent = "Buttholes.";
-
-
         const compScore = document.createElement('div');
         compScore.classList.add('scoreNum');
         compScore.textContent = "not butts";
 
-        
-
-
-        content.classList.add('content');
-        content.textContent = resultText;
         flexContainer.appendChild(playerScore);
         flexContainer.appendChild(content);
         flexContainer.appendChild(compScore);
