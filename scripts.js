@@ -32,22 +32,32 @@ function playRound(playerSelection, computerSelection) {
 
 
 const buttons = document.querySelectorAll('button');
-let playerSelection = "Error";
-
-
-
+let playerSelection = "ERROR: You shoudln't see this...";
 let computerSelection = computerPlay();
 
 
 buttons.forEach((button) => {
     button.addEventListener('click', () =>  {
-      playerSelection = button.textContent;
-      console.log(playerSelection);
+        playerSelection = button.textContent;
+        console.log(playerSelection);
 
-      console.log(playRound(playerSelection, computerSelection));
-      computerSelection = computerPlay();
+        computerSelection = computerPlay();
+
+        //Creating DOM element, appending to <div>, prints results.
+        const resultContainer = document.querySelector('.resultContainer'); 
+
+        const content = document.createElement('div');
+        content.classList.add('content');
+        content.textContent = playRound(playerSelection, computerSelection);
+
+        resultContainer.appendChild(content);
     });
 });
+
+
+
+
+
 /*function game() {
     for(let i = 0; i < 5; i++) {
         let input = prompt("What would you like to play? ");
