@@ -1,3 +1,21 @@
 h1 {
     background-color: aqua;
 }
+
+.resultContainer {
+    display: flex;
+    flex-direction: column;
+}
+.flexContainer {
+    display: flex;
+}
+.content {
+    color: blue;
+    flex: auto;
+}
+
+.scoreNum {
+    flex:auto;
+    font-size: 24px;
+
+}
