@@ -44,20 +44,16 @@ function playRound(playerSelection, computerSelection) {
 const resultContainer = document.querySelector('.resultContainer'); 
 const flexContainer = document.createElement('div');
 flexContainer.classList.add('flexContainer');
-//Prints results
-const content = document.createElement('div');
-content.classList.add('content');
-
-//Printing scores
+scorePrint = document.createElement('div');
+scorePrint.classList.add('scorePrint');
 const playerDisplay = document.createElement('div');
 playerDisplay.classList.add('scoreNum');
-
 const compDisplay = document.createElement('div');
 compDisplay.classList.add('scoreNum');
-
 //Appending
+//TODO: Maybe remove flex container, not needed?
 flexContainer.appendChild(playerDisplay);
-flexContainer.appendChild(content);
+flexContainer.appendChild(scorePrint);
 flexContainer.appendChild(compDisplay);
 resultContainer.appendChild(flexContainer);
 
@@ -92,8 +88,8 @@ buttons.forEach((button) => {
         });
         //TODO: change print out result to 1, not "win.." "win.." "lose..."
 
-
-        content.textContent = resultText;
+        //Printing results & scores
+        scorePrint.textContent = resultText;
         compDisplay.textContent = compScore;
         playerDisplay.textContent = playerScore;
         
