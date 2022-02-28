@@ -41,22 +41,9 @@ function playRound(playerSelection, computerSelection) {
 
 
 //Creating DOM elements
-const resultContainer = document.querySelector('.resultContainer'); 
-const flexContainer = document.createElement('div');
-flexContainer.classList.add('flexContainer');
-scorePrint = document.createElement('div');
-scorePrint.classList.add('scorePrint');
-const playerDisplay = document.createElement('div');
-playerDisplay.classList.add('scoreNum');
-const compDisplay = document.createElement('div');
-compDisplay.classList.add('scoreNum');
-//Appending
-//TODO: Maybe remove flex container, not needed?
-flexContainer.appendChild(playerDisplay);
-flexContainer.appendChild(scorePrint);
-flexContainer.appendChild(compDisplay);
-resultContainer.appendChild(flexContainer);
-
+scorePrint = document.querySelector('.scorePrint');
+const playerDisplay = document.querySelector('.playerDisplay');
+const compDisplay = document.querySelector('.compDisplay');
 
 const buttons = document.querySelectorAll('button');
 let playerSelection = "ERROR: You shouldn't see this...";
@@ -86,27 +73,11 @@ buttons.forEach((button) => {
                 compScore++;
             }
         });
-        //TODO: change print out result to 1, not "win.." "win.." "lose..."
 
         //Printing results & scores
-        scorePrint.textContent = resultText;
-        compDisplay.textContent = compScore;
-        playerDisplay.textContent = playerScore;
+        scorePrint.textContent = `Round result: ${resultText}`;
+        compDisplay.textContent = `Computer score: ${compScore}`;
+        playerDisplay.textContent = `Your score: ${playerScore}`;
         
     });
 });
-
-
-
-
-
-/*function game() {
-    for(let i = 0; i < 5; i++) {
-        let input = prompt("What would you like to play? ");
-        console.log(playRound(input, computerPlay()));
-    }
-}*/
-
-//console.log(playRound(playerSelection, computerSelection));
-
-//game();
