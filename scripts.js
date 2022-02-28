@@ -40,6 +40,28 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
+//Creating DOM elements
+const resultContainer = document.querySelector('.resultContainer'); 
+const flexContainer = document.createElement('div');
+flexContainer.classList.add('flexContainer');
+//Prints results
+const content = document.createElement('div');
+content.classList.add('content');
+
+//Printing scores
+const playerDisplay = document.createElement('div');
+playerDisplay.classList.add('scoreNum');
+
+const compDisplay = document.createElement('div');
+compDisplay.classList.add('scoreNum');
+
+//Appending
+flexContainer.appendChild(playerDisplay);
+flexContainer.appendChild(content);
+flexContainer.appendChild(compDisplay);
+resultContainer.appendChild(flexContainer);
+
+
 const buttons = document.querySelectorAll('button');
 let playerSelection = "ERROR: You shouldn't see this...";
 let computerSelection = computerPlay();
@@ -47,6 +69,7 @@ let count = 0;
 let playerScore = 0;
 let compScore = 0;
 let resultText = "";
+
 
 buttons.forEach((button) => {
     button.addEventListener('click', () =>  {
@@ -57,7 +80,7 @@ buttons.forEach((button) => {
         computerSelection = computerPlay();
         resultText = playRound(playerSelection, computerSelection);
 
-        //TODO: Logic for score tracking, game rounds, and winning/losing.
+        //Logic for score tracking
         const resultArray = resultText.split(' ');
         resultArray.forEach((element) => {
             if(element === "win!") {
@@ -66,38 +89,14 @@ buttons.forEach((button) => {
             else if(element === "lose!") {
                 compScore++;
             }
-            else{
-            }
         });
-        console.log(resultArray);
         //TODO: change print out result to 1, not "win.." "win.." "lose..."
 
 
-
-
-
-        //Creating DOM elements
-        const resultContainer = document.querySelector('.resultContainer'); 
-        const flexContainer = document.createElement('div');
-        flexContainer.classList.add('flexContainer');
-        //Prints results
-        const content = document.createElement('div');
-        content.classList.add('content');
         content.textContent = resultText;
-        //Printing scores
-        const playerDisplay = document.createElement('div');
-        playerDisplay.classList.add('scoreNum');
-        playerDisplay.textContent = playerScore;
-        const compDisplay = document.createElement('div');
-        compDisplay.classList.add('scoreNum');
         compDisplay.textContent = compScore;
-        //Appending
-        flexContainer.appendChild(playerDisplay);
-        flexContainer.appendChild(content);
-        flexContainer.appendChild(compDisplay);
-        resultContainer.appendChild(flexContainer);
-
-        //if()
+        playerDisplay.textContent = playerScore;
+        
     });
 });
 
