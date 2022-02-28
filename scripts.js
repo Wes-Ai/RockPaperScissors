@@ -48,7 +48,6 @@ const compDisplay = document.querySelector('.compDisplay');
 const buttons = document.querySelectorAll('button');
 let playerSelection = "ERROR: You shouldn't see this...";
 let computerSelection = computerPlay();
-let count = 0;
 let playerScore = 0;
 let compScore = 0;
 let resultText = "";
@@ -78,6 +77,13 @@ buttons.forEach((button) => {
         scorePrint.textContent = `Round result: ${resultText}`;
         compDisplay.textContent = `Computer score: ${compScore}`;
         playerDisplay.textContent = `Your score: ${playerScore}`;
+
+        if(compScore === 5) {
+            scorePrint.textContent = "You lost the game bro, RIP.";
+        }
+        else if (playerScore === 5) {
+            scorePrint.textContent = "You won the game bro! POG!";
+        }
         
     });
 });
