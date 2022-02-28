@@ -83,6 +83,7 @@ buttons.forEach((button) => {
         }
         else if (playerScore === 5) {
             scorePrint.textContent = "You won the game bro! POG!";
+            
         }
         
     });
